@@ -60,3 +60,13 @@
         font-size: 15px;
         margin-bottom: 5px;
     }
+    /*---Footer---*/
+    
+    footer {
+        position: absolute;
+        bottom: 0px;
+        padding: 5px 10px;
+        width: calc(100vw - 20px);
+        text-align: right;
+        background-color: #ffe300;
+    }

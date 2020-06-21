@@ -48,7 +48,7 @@
     </nav>
     <main>
     </main>
-    <footer></footer>
+    <footer>©Alexander Romberg</footer>
 </body>
 
 </html>
