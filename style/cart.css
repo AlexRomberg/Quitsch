@@ -1,0 +1,57 @@
+    main {
+        padding: 0 10%;
+        padding-top: 30px;
+    }
+    
+    .shoppinglist {
+        padding-top: 15px;
+        width: 100%;
+    }
+    
+    .shoppinglist table {
+        background-color: aliceblue;
+        width: 100%;
+        border-radius: 7px;
+        border-spacing: 0px;
+        overflow: hidden;
+    }
+    
+    th {
+        padding: 10px 0;
+    }
+    
+    td,
+    th {
+        border: none;
+        text-align: right;
+        font-size: 20px;
+    }
+    
+    .First {
+        text-align: left;
+        padding-left: 10px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    
+    .btn {
+        font-family: FontAwesome;
+        background-color: red;
+        border: none;
+        border-radius: 30px;
+        font-size: 20px;
+        padding: 10px 14px;
+        margin: 10px;
+        transition: 0.25s;
+    }
+    
+    .btn:hover {
+        background-color: black;
+        color: red;
+    }
+    
+    .Last {
+        width: 66px;
+    }
