@@ -1,0 +1,30 @@
+/*---main---*/
+
+main {
+    width: 100%;
+    text-align: center;
+}
+
+main h1 {
+    margin-top: -5%;
+}
+
+.duck {
+    transform-origin: 50% 50%;
+    animation: wiggle 2s linear infinite;
+}
+
+@keyframes wiggle {
+    25% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
