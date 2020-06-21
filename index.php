@@ -42,7 +42,7 @@
     <nav>
         <ul>
             <li class="active"><a>Home</a></li>
-            <li><a href="index.php">Shop</a></li>
+            <li><a href="shop.php">Shop</a></li>
             <li style="float:right"><a href="cart.php">Einkaufswagen <i><?php echo(countItems()); ?></i></a></li>
         </ul>
     </nav>
