@@ -64,7 +64,7 @@
                     </g>
                 </g>
             </svg>
-            <h1>Herzlich willkommen im Quitscheentenshop</h1>
+            <h1>Herzlich willkommen im Quietscheentenshop</h1>
         </div>
     </main>
     <footer>©Alexander Romberg</footer>
