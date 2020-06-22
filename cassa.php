@@ -25,6 +25,9 @@
     <?php
         session_start();
 
+        session_unset();
+        session_destroy();
+
         if (!isset($_SESSION['values'])) {
             $_SESSION['values'] = array('red' => 0, 'blue'=> 0, 'yellow'=> 0, 'silver'=> 0, 'gold' => 0);
         }
@@ -37,7 +40,7 @@
             return $count;
         }
     ?>
-    <header>
+    <header href="index.php">
         <h1>Quietscheentenshop</h1>
     </header>
     <nav>

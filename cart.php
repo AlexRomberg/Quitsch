@@ -64,7 +64,7 @@
         removeClicked();
     ?>
 
-    <header>
+    <header href="index.php">
         <h1>Quietscheentenshop</h1>
     </header>
     <nav>

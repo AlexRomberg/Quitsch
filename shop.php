@@ -64,7 +64,7 @@
 
     ?>
 
-    <header>
+    <header href="index.php">
         <h1>Quietscheentenshop</h1>
     </header>
     <nav>
@@ -92,7 +92,7 @@
                     </g>
                 </svg>
                 <div class="card-text">
-                    <h4><b>Quietschente rot</b></h4>
+                    <h4><b>Quietscheente rot</b></h4>
                     <p>CHF 6.95</p>
                     <form action="shop.php">
                         <label for="quantRed">Anzahl:</label>
@@ -117,7 +117,7 @@
                     </g>
                 </svg>
                 <div class="card-text">
-                    <h4><b>Quietschente blau</b></h4>
+                    <h4><b>Quietscheente blau</b></h4>
                     <p>CHF 6.95</p>
                     <form action="shop.php">
                         <label for="quantBlue">Anzahl:</label>
@@ -142,7 +142,7 @@
                     </g>
                 </svg>
                 <div class="card-text">
-                    <h4><b>Quietschente gelb</b></h4>
+                    <h4><b>Quietscheente gelb</b></h4>
                     <p>CHF 6.95</p>
                     <form action="shop.php">
                         <label for="quantYellow">Anzahl:</label>
@@ -167,7 +167,7 @@
                     </g>
                 </svg>
                 <div class="card-text">
-                    <h4><b>Quietschente silber</b></h4>
+                    <h4><b>Quietscheente silber</b></h4>
                     <p>CHF 8.95</p>
                     <form action="shop.php">
                         <label for="quantSilver">Anzahl:</label>
@@ -192,7 +192,7 @@
                     </g>
                 </svg>
                 <div class="card-text">
-                    <h4><b>Quietschente gold</b></h4>
+                    <h4><b>Quietscheente gold</b></h4>
                     <p>CHF 11.95</p>
                     <form action="shop.php">
                         <label for="quantGold">Anzahl:</label>
