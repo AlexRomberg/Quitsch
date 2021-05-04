@@ -10,7 +10,7 @@
 
 
 </head>
-<form action="action_page.php">
+<form method="POST" action="login.php">
     <div class="container">
         <h1>Register</h1>
         <p>Bitte ausfüllen um ein Account zu erstellen</p>
@@ -27,11 +27,21 @@
         <hr>
 
 
-        <button type="submit" class="registerbtn">Register</button>
+        <button type="submit" name="register" class="registerbtn">Register</button>
     </div>
 
     <div class="container signin">
         <p>Already have an account? <a href="login.php">Sign in</a>.</p>
     </div>
-</form>
+    <?php
+    require("DB/Database.php");
+    $db = new DB();
 
+
+    if (isset($_POST['register'])) {
+        $db->userExists($_POST['username']);
+        $db->createUser($_POST['username'], $_POST['psw']);
+        header("login.php");
+    }
+    ?>
+</form>

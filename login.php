@@ -1,42 +1,4 @@
-<?php
-session_start();
-if (isset($_GET["login"])) {
-    class MyDB extends SQLite3
-    {
-        function __construct()
-        {
-            $this->open('DB/database.php');
-        }
-    }
-    $db = new MyDB();
-    if (!$db) {
-        echo $db->lastErrorMsg();
-    }
 
-    $sql = 'SELECT * from USERS where USERNAME="' . $_POST["usr_name"] . '";';
-
-
-    $ret = $db->query($sql);
-    while ($row = $ret->fetchArray(SQLITE3_ASSOC)) {
-        $id = $row['ID'];
-        $username = $row["USERNAME"];
-        $password = $row['PASSWORD'];
-    }
-    if ($id != "") {
-        if ($password == $_POST["pwd"]) {
-            $_SESSION["login"] = $username;
-            header('Location: index.php');
-        } else {
-            echo "Wrong Password";
-        }
-    } else {
-        echo "User not exist, please register to continue!";
-    }
-
-    $db->close();
-}
-
-?>
 <!DOCTYPE html>
 <html lang="de">
 
@@ -58,7 +20,7 @@ if (isset($_GET["login"])) {
         <form role="form" action="login.php?login=true">
             <div class="form-group">
                 <label for="usr_name">Username:</label>
-                <input type="text" class="form-control" id="usr_name" placeholder="Enter Username">
+                <input type="text" class="form-control" name = "username" id="username" placeholder="Enter Username">
             </div>
             <div class="form-group">
                 <label for="pwd">Password:</label>
@@ -67,10 +29,18 @@ if (isset($_GET["login"])) {
             <div class="checkbox">
                 <label><input type="checkbox"> Remember me</label>
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" name="login" class="btn btn-default">Login</button>
             <a href="index.php" class="btn btn-default">Go back</a>
         </form>
     </div>
 
 </body>
 <html>
+
+<?php
+require ("DB/Database.php");
+$db = new DB();
+if(isset($_POST['register'])){
+    $db -> validateUser($_POST['username'], $_POST['psw']);
+}
+?>
