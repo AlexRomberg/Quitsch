@@ -65,9 +65,9 @@
                 </g>
             </svg>
             <h1>Herzlich willkommen im Quietscheentenshop</h1>
-            <a>Anmelden</a>
+            <a href="login.php">Anmelden</a>
             <br>
-            <a href="login.php">Noch kein Account? Hier kannst du dich regisrieren</a>
+            <a href="register.php">Noch kein Account? Hier kannst du dich regisrieren</a>
         </div>
     </main>
     <footer>©Alexander Romberg</footer>
