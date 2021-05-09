@@ -16,36 +16,55 @@ class DB
 
     function userExists($username)
     {
-        $userCount = $this->db->query("SELECT COUNT(*) AS userCount FROM TUsers WHERE UserName = '$username'");
-        $userCount = $userCount->fetchArray();
-        // var_dump($userCount);
-        return $userCount["userCount"] > 0;
+        if ($this->validateUsername($username)) {
+            $userCount = $this->db->query("SELECT COUNT(*) AS userCount FROM TUsers WHERE UserName = '$username'");
+            $userCount = $userCount->fetchArray();
+            return $userCount["userCount"] > 0;
+        } else {
+            throw new Exception("Username not valid!", 1);
+        }
     }
 
     function validateUser($username, $password)
     {
-        if ($this->userExists($username)) {
-            $user = $this->getUserInfo($username);
-            return password_verify($password, $user['UserPassword']);
+        if ($this->validateUsername($username)) {
+            if ($this->userExists($username)) {
+                $user = $this->getUserInfo($username);
+                return password_verify($password, $user['UserPassword']);
+            } else {
+                return false;
+            }
         } else {
-            return false;
+            throw new Exception("Username not valid!", 1);
         }
     }
 
     function getUserInfo($username)
     {
-        if ($this->userExists($username)) {
-            $user = $this->db->query("SELECT * FROM TUsers WHERE UserName = '$username';");
-            return $user->fetchArray();
+        if ($this->validateUsername($username)) {
+            if ($this->userExists($username)) {
+                $user = $this->db->query("SELECT * FROM TUsers WHERE UserName = '$username';");
+                return $user->fetchArray();
+            } else {
+                throw new Exception("UserNameNotFound", 1);
+            }
         } else {
-            throw new Exception("UserNameNotFound", 1);
+            throw new Exception("Username not valid!", 1);
         }
     }
 
     function createUser($username, $password)
     {
-        $passwordHash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
-        $this->db->exec("INSERT INTO TUsers (UserName, UserPassword) VALUES ('$username', '$passwordHash')");
+        if ($this->validateUsername($username)) {
+            if (preg_match('/^[a-zA-Z0-9]{8,}$/', $password)) {
+                $passwordHash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
+                $this->db->exec("INSERT INTO TUsers (UserName, UserPassword) VALUES ('$username', '$passwordHash')");
+            } else {
+                throw new Exception("Username not valid!", 1);
+            }
+        } else {
+            throw new Exception("Username not valid!", 1);
+        }
     }
 
     function addAdressToUser($username, $adressName, $plz, $village, $street, $streetNr)
@@ -56,6 +75,9 @@ class DB
             throw new Exception("UserNameNotFound", 1);
         }
     }
-}
 
-// $db = new DB(); // init DB
+    function validateUsername($username)
+    {
+        return preg_match('/^[a-zA-Z0-9]+([a-zA-Z0-9](_|-|.)[a-zA-Z0-9])*[a-zA-Z0-9]+$/', $username);
+    }
+}
